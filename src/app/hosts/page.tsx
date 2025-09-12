@@ -164,7 +164,7 @@ export default function HostsPage() {
               The Perfect Partnership
             </h2>
             <p className="text-text-secondary text-lg mb-6 max-w-2xl mx-auto">
-              Anoop and Nisha bring complementary expertise to every episode. Their dynamic discussions 
+              Anoop and Nisha Prakash bring complementary expertise to every episode. Their dynamic discussions 
               combine strategic thinking with analytical insights, providing listeners with well-rounded 
               perspectives on marketing and business challenges.
             </p>

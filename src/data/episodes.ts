@@ -4,7 +4,7 @@ export const episodes: Episode[] = [
   {
     id: "digital-detox-fomo-psychology",
     title: "The Hidden Costs of Our Digital Lives: FOMO, Social Media Breaks, and AI Comments",
-    description: "Nisha and Anoop dive into the hidden costs of our digital lives—why taking a break from social media makes us feel guilty, and how FOMO keeps both individuals and businesses glued to their feeds.",
+    description: "Nisha Prakash and Anoop dive into the hidden costs of our digital lives—why taking a break from social media makes us feel guilty, and how FOMO keeps both individuals and businesses glued to their feeds.",
     publishDate: "2024-09-05",
     duration: "28 min",
     episodeNumber: 13,
@@ -150,7 +150,7 @@ export const episodes: Episode[] = [
   {
     id: "click-brand-beyond-pilot",
     title: "Welcome to Click, Brand, and Beyond - Our Origin Story",
-    description: "The pilot episode where Anoop and Nisha introduce themselves, share their backgrounds, and explain what Click, Brand, and Beyond is all about.",
+    description: "The pilot episode where Anoop and Nisha Prakash introduce themselves, share their backgrounds, and explain what Click, Brand, and Beyond is all about.",
     publishDate: "2024-03-21",
     duration: "22 min",
     episodeNumber: 1,

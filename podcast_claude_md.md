@@ -1,11 +1,11 @@
 # Click, Brand, and Beyond Podcast Website
 
 ## Project Overview
-Developing a modern podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha. The podcast explores LinkedIn timelines, marketing trends, AI impact on business, startup culture, and the evolving landscape of digital marketing and branding.
+Developing a modern podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha Prakash. The podcast explores LinkedIn timelines, marketing trends, AI impact on business, startup culture, and the evolving landscape of digital marketing and branding.
 
 ## Podcast Details
 - **Name**: Click, Brand, and Beyond Podcast
-- **Hosts**: Anoop Kurup & Nisha
+- **Hosts**: Anoop Kurup & Nisha Prakash
 - **Format**: LinkedIn Timeline Talk episodes + deep dives into marketing strategies
 - **Episode Length**: 20-65 minutes
 - **Publishing Schedule**: Regular episodes since April 2024
@@ -83,7 +83,7 @@ export const episodes: Episode[] = [
   {
     id: "digital-detox-fomo-psychology",
     title: "The Hidden Costs of Our Digital Lives: FOMO, Social Media Breaks, and AI Comments",
-    description: "Nisha and Anoop dive into the hidden costs of our digital lives—why taking a break from social media makes us feel guilty, and how FOMO keeps both individuals and businesses glued to their feeds.",
+    description: "Nisha Prakash and Anoop dive into the hidden costs of our digital lives—why taking a break from social media makes us feel guilty, and how FOMO keeps both individuals and businesses glued to their feeds.",
     publishDate: "2024-09-05",
     duration: "28 min",
     episodeNumber: 13,
@@ -134,7 +134,7 @@ export const episodes: Episode[] = [
 - Comments section (optional)
 
 ### 4. Hosts Page
-- Detailed profiles of Anoop and Nisha
+- Detailed profiles of Anoop and Nisha Prakash
 - Professional backgrounds
 - Social media links
 - Individual host photos and bios
@@ -313,7 +313,7 @@ Import all episodes from Spotify data:
 - **Marketing Focus**: Specialized content for marketing professionals
 - **Indian Business Perspective**: Local insights with global applicability
 - **AI and Business**: Cutting-edge discussions on AI impact
-- **Dual Host Dynamic**: Anoop and Nisha's collaborative insights
+- **Dual Host Dynamic**: Anoop and Nisha Prakash's collaborative insights
 
 ## Next Steps
 1. Set up Next.js project with episode-focused architecture

@@ -11,10 +11,10 @@ export const hosts: Host[] = [
     email: "anoop@clickbrandandbeyond.com"
   },
   {
-    id: "nisha",
-    name: "Nisha",
+    id: "nisha-prakash",
+    name: "Nisha Prakash",
     role: "Co-Host & Brand Analyst",
-    bio: "Nisha specializes in brand analysis and consumer psychology, bringing a unique perspective to modern marketing challenges. Her analytical approach to understanding consumer behavior and brand positioning helps listeners navigate the complex world of digital branding. She's particularly passionate about the intersection of technology and human behavior in marketing.",
+    bio: "Nisha Prakash specializes in brand analysis and consumer psychology, bringing a unique perspective to modern marketing challenges. Her analytical approach to understanding consumer behavior and brand positioning helps listeners navigate the complex world of digital branding. She's particularly passionate about the intersection of technology and human behavior in marketing.",
     linkedin: "https://linkedin.com/in/nisha-marketing",
     instagram: "https://instagram.com/nisha_brands",
     email: "nisha@clickbrandandbeyond.com"
@@ -23,7 +23,7 @@ export const hosts: Host[] = [
 
 export const podcastInfo = {
   name: "Click, Brand, and Beyond",
-  description: "A marketing and business insights podcast hosted by Anoop Kurup and Nisha",
+  description: "A marketing and business insights podcast hosted by Anoop Kurup and Nisha Prakash",
   spotifyUrl: "https://open.spotify.com/show/7lnAk0uJ73hwr7AVN93nv3",
   appleUrl: "https://podcasts.apple.com/podcast/click-brand-beyond",
   googleUrl: "https://podcasts.google.com/feed/click-brand-beyond",

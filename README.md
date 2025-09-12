@@ -1,6 +1,6 @@
 # 🎙️ Click, Brand, and Beyond
 
-A modern, responsive podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha.
+A modern, responsive podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha Prakash.
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript)
@@ -82,7 +82,7 @@ cbbsite/
 
 ### Hosts
 - **Anoop Kurup**: Marketing Strategist with expertise in digital trends and business development
-- **Nisha**: Brand Analyst specializing in consumer psychology and market research
+- **Nisha Prakash**: Brand Analyst specializing in consumer psychology and market research
 
 ## 🚀 Getting Started
 
@@ -210,7 +210,7 @@ npm start
 
 - **Podcast Email**: hello@clickbrandandbeyond.com
 - **Anoop Kurup**: [LinkedIn](https://linkedin.com/in/anoopkurup)
-- **Nisha**: [LinkedIn](https://linkedin.com/in/nisha-marketing)
+- **Nisha Prakash**: [LinkedIn](https://linkedin.com/in/nisha-marketing)
 
 ## 📜 License
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha. The site is built with Next.js 14/15 using the App Router pattern, styled with Tailwind CSS and shadcn/ui components.
+This is a podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha Prakash. The site is built with Next.js 14/15 using the App Router pattern, styled with Tailwind CSS and shadcn/ui components.
 
 ## Development Commands
 
@@ -58,7 +58,7 @@ app/
 ├── episodes/           # Primary feature - episode listing and individual pages
 │   ├── page.tsx       # Main episodes listing (most important page)
 │   └── [slug]/        # Individual episode pages
-├── hosts/             # Host profiles (Anoop & Nisha)
+├── hosts/             # Host profiles (Anoop & Nisha Prakash)
 ├── about/             # Podcast information
 └── subscribe/         # Platform links and newsletter
 

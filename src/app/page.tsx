@@ -26,7 +26,7 @@ export default function Home() {
               Marketing & Business Insights Podcast
             </p>
             <p className="text-lg text-text-muted max-w-2xl mx-auto mb-8">
-              Join Anoop Kurup and Nisha as they explore LinkedIn timelines, marketing trends, 
+              Join Anoop Kurup and Nisha Prakash as they explore LinkedIn timelines, marketing trends, 
               AI impact on business, startup culture, and the evolving landscape of digital marketing and branding.
             </p>
             

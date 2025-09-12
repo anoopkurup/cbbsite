@@ -34,7 +34,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-primary-100 max-w-md mb-6">
-              Join Anoop Kurup and Nisha as they explore LinkedIn timelines, marketing trends, 
+              Join Anoop Kurup and Nisha Prakash as they explore LinkedIn timelines, marketing trends, 
               AI impact on business, startup culture, and the evolving landscape of digital 
               marketing and branding.
             </p>
@@ -137,7 +137,7 @@ export function Footer() {
             © {new Date().getFullYear()} Click, Brand, and Beyond. All rights reserved.
           </p>
           <p className="mt-2">
-            Hosted by Anoop Kurup and Nisha • Made with ❤️ for marketing professionals
+            Hosted by Anoop Kurup and Nisha Prakash • Made with ❤️ for marketing professionals
           </p>
         </div>
       </div>
