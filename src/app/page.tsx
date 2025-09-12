@@ -1,14 +1,17 @@
 import Link from 'next/link'
-import { episodes } from '@/data/episodes'
 import { hosts } from '@/data/hosts'
 import { EpisodeCard } from '@/components/EpisodeCard'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Play, Users, TrendingUp, Headphones } from 'lucide-react'
+import { getEpisodes, getLatestEpisode, getFeaturedEpisodes } from '@/lib/episodesService'
 
-export default function Home() {
-  const latestEpisode = episodes[0]
-  const featuredEpisodes = episodes.filter(ep => ep.featured).slice(0, 3)
+export default async function Home() {
+  const [episodes, latestEpisode, featuredEpisodes] = await Promise.all([
+    getEpisodes(),
+    getLatestEpisode(),
+    getFeaturedEpisodes()
+  ])
 
   return (
     <div className="min-h-screen">
@@ -91,7 +94,7 @@ export default function Home() {
               </p>
             </div>
             
-            <EpisodeCard episode={latestEpisode} />
+            {latestEpisode && <EpisodeCard episode={latestEpisode} />}
           </div>
         </div>
       </section>

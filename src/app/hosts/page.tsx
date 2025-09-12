@@ -1,12 +1,14 @@
 import Link from 'next/link'
 import { hosts } from '@/data/hosts'
-import { episodes } from '@/data/episodes'
+import { getEpisodes } from '@/lib/episodesService'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Users, Linkedin, Twitter, Instagram, Mail, ExternalLink } from 'lucide-react'
 
-export default function HostsPage() {
+export default async function HostsPage() {
+  const episodes = await getEpisodes()
+  
   const getHostEpisodes = (hostName: string) => {
     // In a real app, this would filter episodes where the host participated
     // For now, we'll show recent episodes as examples
@@ -35,7 +37,7 @@ export default function HostsPage() {
                 <div className="grid lg:grid-cols-3 gap-8 items-center">
                   {/* Host Photo Placeholder */}
                   <div className={`${index % 2 === 1 ? 'lg:order-3' : ''}`}>
-                    <div className="aspect-square w-64 mx-auto bg-gradient-to-br from-primary-400 to-secondary-400 rounded-2xl flex items-center justify-center shadow-lg">
+                    <div className="aspect-video w-full max-w-md mx-auto bg-gradient-to-br from-primary-400 to-secondary-400 rounded-2xl flex items-center justify-center shadow-lg">
                       <Users className="w-24 h-24 text-white" />
                     </div>
                   </div>

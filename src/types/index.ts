@@ -15,6 +15,8 @@ export interface Episode {
   showNotes?: string
   featured: boolean
   slug: string
+  thumbnail?: string
+  image?: string
 }
 
 export interface Host {

@@ -103,12 +103,24 @@ cbbsite/
    npm install
    ```
 
-3. **Run development server**
+3. **Set up environment variables**
+   Copy the `.env.example` file to `.env` and fill in your Spotify API credentials:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Then edit the `.env` file and add your Spotify Client ID and Client Secret:
+   ```env
+   SPOTIFY_CLIENT_ID=your_spotify_client_id
+   SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+   ```
+
+4. **Run development server**
    ```bash
    npm run dev
    ```
 
-4. **Open in browser**
+5. **Open in browser**
    ```
    http://localhost:3000
    ```

@@ -4,11 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha Prakash. The site is built with Next.js 14/15 using the App Router pattern, styled with Tailwind CSS and shadcn/ui components.
+This is a podcast website for "Click, Brand, and Beyond" - a marketing and business insights podcast hosted by Anoop Kurup and Nisha Prakash. The site is built with Next.js 14 using the App Router pattern, styled with Tailwind CSS and shadcn/ui components.
 
 ## Development Commands
-
-*Note: This project is currently in the planning/documentation phase. Once initialized with Next.js:*
 
 ```bash
 # Development server
@@ -20,11 +18,8 @@ npm run build
 # Start production server
 npm start
 
-# Linting (when configured)
+# Linting
 npm run lint
-
-# Type checking (when configured)
-npm run typecheck
 ```
 
 ## Architecture Overview
@@ -36,78 +31,126 @@ npm run typecheck
 
 ### Key Data Models
 
-**Episode Interface** (central to the application):
+**Episode Interface** (central to the application - see `src/types/index.ts`):
 ```typescript
 interface Episode {
-  id: string;
-  title: string;
-  description: string;
-  publishDate: string;
-  duration: string;
-  episodeNumber: number;
-  topics: string[];
-  spotifyUrl: string;
-  featured: boolean;
-  // Optional: seasonNumber, guests, transcript, showNotes
+  id: string
+  title: string
+  description: string
+  publishDate: string
+  duration: string
+  seasonNumber?: number
+  episodeNumber: number
+  topics: string[]
+  guests?: string[]
+  spotifyUrl: string
+  appleUrl?: string
+  googleUrl?: string
+  transcript?: string
+  showNotes?: string
+  featured: boolean
+  slug: string
+  thumbnail?: string
+  image?: string
 }
 ```
 
-### Planned Directory Structure
+**Additional Data Models**:
+- `Host`: Host profile information with social links
+- `PodcastPlatform`: Platform links and icons
+- `Newsletter`: Newsletter subscription handling
+- `Topic`: Topic categorization with colors and slugs
+
+### Current Directory Structure
 ```
 app/
 ├── episodes/           # Primary feature - episode listing and individual pages
-│   ├── page.tsx       # Main episodes listing (most important page)
-│   └── [slug]/        # Individual episode pages
-├── hosts/             # Host profiles (Anoop & Nisha Prakash)
-├── about/             # Podcast information
-└── subscribe/         # Platform links and newsletter
+│   ├── page.tsx       # Main episodes listing (implemented)
+│   └── [slug]/page.tsx # Individual episode pages (implemented)
+├── hosts/page.tsx      # Host profiles (implemented)
+├── about/page.tsx      # Podcast information (implemented)
+├── subscribe/page.tsx  # Platform links and newsletter (implemented)
+├── test-images/page.tsx # Image testing page
+└── layout.tsx         # Root layout with navigation
 
 components/
-├── ui/                # shadcn/ui components
+├── ui/                # shadcn/ui components (card, badge, button, etc.)
 ├── EpisodeCard.tsx    # Core component for episode display
-├── LatestEpisode.tsx  # Homepage hero episode
-└── HostProfiles.tsx   # Host information display
+├── EpisodesClient.tsx # Client-side episodes filtering/search
+├── Footer.tsx         # Site footer
+└── ImageTest.tsx      # Image testing component
 
 data/
-├── episodes.ts        # Episode data (13+ episodes from April 2024)
-└── hosts.ts          # Host profile data
+├── episodes.ts        # Episode data (44 episodes as of 2025)
+└── (hosts data in components)
+
+lib/
+├── episodesService.ts     # Main episode service with caching
+├── episodesServiceSpotify.ts # Spotify integration service
+├── rssParser.ts           # RSS feed parsing
+├── spotify/              # Spotify API integration
+│   ├── client.ts        # Spotify API client
+│   ├── service.ts       # Spotify service functions
+│   └── test.ts          # Spotify testing utilities
+└── utils.ts             # Utility functions
 ```
 
 ### Content Management
-- **Show Notes**: MDX files with frontmatter for episode metadata
-- **Topics/Categories**: Marketing Strategy, AI and Business, LinkedIn Timeline Talk, Consumer Psychology, Digital Trends
-- **Audio Integration**: Primary platform is Spotify, with links to other podcast platforms
+- **Episode Data**: Static TypeScript data with 44+ episodes (2024-2025)
+- **Spotify Integration**: Primary platform integration with API services and caching
+- **RSS Parsing**: Alternative content source via RSS feed parsing
+- **Topics/Categories**: AI, Marketing Strategy, LinkedIn, Consumer Psychology, Digital Trends
+- **Content Fallback**: Graceful fallback from Spotify API to static data
 
-### Design System
-- **Color Scheme**: Deep blue/navy (professional) + bright orange/coral (energy)
-- **Typography**: Modern sans-serif, with emphasis on readability
-- **Mobile-First**: Responsive design optimized for podcast consumption
+### Technology Stack
+- **Framework**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Data**: Static TypeScript + Spotify API integration
+- **Image Optimization**: Next.js Image with Spotify CDN domains
+- **Environment**: dotenv configuration for API credentials
 
-### Development Phases
-1. **Foundation**: Episodes system (primary feature)
-2. **Core Website**: Homepage, hosts, about, subscribe pages  
-3. **Enhanced Features**: Search/filter, newsletter, social sharing
-4. **Content & Launch**: Import all existing episodes, SEO optimization
+### Current Implementation Status
+✅ **Completed Features**:
+- Core Next.js application structure
+- Episode listing and individual episode pages
+- Spotify API integration with caching
+- RSS feed parsing capability
+- Host profiles, About, and Subscribe pages
+- Responsive design with shadcn/ui components
+- Episode filtering and search functionality
+
+🔄 **In Progress**:
+- Content optimization and testing
+- Image handling improvements
+- API integration refinements
 
 ## Key Implementation Notes
 
-### Episodes System Priority
-The episodes listing page (`app/episodes/page.tsx`) is the most critical feature and should be implemented first. This includes:
-- Complete episode listing (latest first)
-- Episode filtering by topics
-- Search functionality
-- Episode card components with play buttons
+### Data Architecture
+**Primary Data Flow**:
+1. **Static Episodes** (`src/data/episodes.ts`): 44+ episodes with complete metadata
+2. **Spotify Integration** (`src/lib/spotify/`): API-based episode fetching with authentication
+3. **Caching Layer** (`src/lib/episodesService.ts`): 30-minute cache to optimize API calls
+4. **Fallback Strategy**: Graceful degradation from Spotify API to static data
 
-### Podcast-Specific Considerations
-- **Spotify Integration**: Primary audio hosting platform
-- **Episode Metadata**: Rich episode data including topics, duration, guest information
-- **Show Notes**: MDX content with timestamps and resource links
-- **Social Sharing**: Optimized for LinkedIn (primary platform for hosts)
+### Episodes System (Core Feature)
+The episodes system is fully implemented with:
+- **Episode Listing**: Complete listing with search and filtering (`/episodes`)
+- **Individual Episodes**: Dynamic routing with episode details (`/episodes/[slug]`)
+- **Client-Side Features**: Real-time search and topic filtering
+- **Episode Cards**: Reusable components with Spotify integration
 
-### Content Import Strategy
-- 13+ existing episodes from April 2024 to September 2024
-- LinkedIn Timeline Talk series episodes
-- Guest episodes featuring Tridib Ghosh
-- Episode topics span marketing, AI, branding, and startup culture
+### Spotify Integration Details
+- **Authentication**: Client credentials flow for public episodes
+- **API Services**: Comprehensive episode fetching with error handling
+- **Image Optimization**: Spotify CDN domains configured in `next.config.js`
+- **Environment Variables**: `.env` file for API credentials (see `.env.example`)
 
-This project focuses on creating a professional podcast discovery and listening experience, with the episodes system as the foundation for all other features.
+### Content Strategy
+- **44+ Episodes**: From November 2024 through September 2025
+- **Rich Metadata**: Topics, guests, duration, platform links
+- **Guest Episodes**: Featuring Tridib Ghosh and other industry experts
+- **Series Content**: LinkedIn Timeline Talk episodes, seasonal content
+- **Topic Coverage**: AI, Marketing Strategy, Consumer Psychology, Brand Analysis
+
+This project is a fully functional podcast website with robust data management and modern web development practices.

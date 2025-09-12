@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { episodes } from '@/data/episodes'
+import Image from 'next/image'
+import { getEpisodes, getEpisodeBySlug } from '@/lib/episodesService'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -13,13 +14,17 @@ interface EpisodePageProps {
 }
 
 export async function generateStaticParams() {
+  const episodes = await getEpisodes()
   return episodes.map((episode) => ({
     slug: episode.slug,
   }))
 }
 
-export default function EpisodePage({ params }: EpisodePageProps) {
-  const episode = episodes.find(ep => ep.slug === params.slug)
+export default async function EpisodePage({ params }: EpisodePageProps) {
+  const [episode, allEpisodes] = await Promise.all([
+    getEpisodeBySlug(params.slug),
+    getEpisodes()
+  ])
 
   if (!episode) {
     notFound()
@@ -47,7 +52,7 @@ export default function EpisodePage({ params }: EpisodePageProps) {
     return colorMap[topic] || 'bg-gray-100 text-gray-800'
   }
 
-  const relatedEpisodes = episodes
+  const relatedEpisodes = allEpisodes
     .filter(ep => 
       ep.id !== episode.id && 
       ep.topics.some(topic => episode.topics.includes(topic))
@@ -70,65 +75,86 @@ export default function EpisodePage({ params }: EpisodePageProps) {
         {/* Episode Header */}
         <div className="max-w-4xl mx-auto mb-8">
           <div className="bg-white/80 rounded-lg p-8 shadow-sm">
-            <div className="flex items-center gap-2 text-sm text-text-muted mb-4">
-              <Calendar className="w-4 h-4" />
-              <span>{formatDate(episode.publishDate)}</span>
-              <Clock className="w-4 h-4 ml-4" />
-              <span>{episode.duration}</span>
-              {episode.featured && (
-                <>
-                  <Badge className="bg-secondary-100 text-secondary-800 border-secondary-200 ml-4">
-                    Featured Episode
-                  </Badge>
-                </>
+            <div className="flex flex-col lg:flex-row gap-8">
+              {/* Episode Thumbnail */}
+              {(episode.thumbnail || episode.image) && (
+                <div className="lg:w-64 lg:flex-shrink-0">
+                  <div className="relative aspect-[16/9] w-full h-auto">
+                    <Image
+                      src={episode.thumbnail || episode.image || ''}
+                      alt={`${episode.title} thumbnail`}
+                      fill
+                      className="object-cover rounded-lg"
+                      sizes="(max-width: 1024px) 100vw, 256px"
+                      priority={true}
+                    />
+                  </div>
+                </div>
               )}
-            </div>
+              
+              {/* Episode Info */}
+              <div className="flex-1">
+                <div className="flex items-center gap-2 text-sm text-text-muted mb-4">
+                  <Calendar className="w-4 h-4" />
+                  <span>{formatDate(episode.publishDate)}</span>
+                  <Clock className="w-4 h-4 ml-4" />
+                  <span>{episode.duration}</span>
+                  {episode.featured && (
+                    <>
+                      <Badge className="bg-secondary-100 text-secondary-800 border-secondary-200 ml-4">
+                        Featured Episode
+                      </Badge>
+                    </>
+                  )}
+                </div>
 
-            <h1 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
-              Episode {episode.episodeNumber}: {episode.title}
-            </h1>
+                <h1 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+                  Episode {episode.episodeNumber}: {episode.title}
+                </h1>
 
-            <p className="text-lg text-text-secondary leading-relaxed mb-6">
-              {episode.description}
-            </p>
+                <p className="text-lg text-text-secondary leading-relaxed mb-6">
+                  {episode.description}
+                </p>
 
-            {/* Topics */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {episode.topics.map((topic, index) => (
-                <Badge 
-                  key={index} 
-                  className={`${getTopicColor(topic)} border-0`}
+                {/* Topics */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {episode.topics.map((topic, index) => (
+                    <Badge 
+                      key={index} 
+                      className={`${getTopicColor(topic)} border-0`}
+                    >
+                      {topic}
+                    </Badge>
+                  ))}
+                </div>
+
+                {/* Guests */}
+                {episode.guests && episode.guests.length > 0 && (
+                  <div className="flex items-center gap-2 text-text-secondary mb-6">
+                    <Users className="w-4 h-4" />
+                    <span className="font-medium">Featured Guests:</span>
+                    <span>{episode.guests.join(', ')}</span>
+                  </div>
+                )}
+
+                {/* Listen Button */}
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-secondary-500 hover:bg-secondary-600 text-white"
                 >
-                  {topic}
-                </Badge>
-              ))}
-            </div>
-
-            {/* Guests */}
-            {episode.guests && episode.guests.length > 0 && (
-              <div className="flex items-center gap-2 text-text-secondary mb-6">
-                <Users className="w-4 h-4" />
-                <span className="font-medium">Featured Guests:</span>
-                <span>{episode.guests.join(', ')}</span>
+                  <a 
+                    href={episode.spotifyUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Play className="w-5 h-5" />
+                    Listen on Spotify
+                  </a>
+                </Button>
               </div>
-            )}
-
-            {/* Listen Button */}
-            <Button
-              asChild
-              size="lg"
-              className="bg-secondary-500 hover:bg-secondary-600 text-white"
-            >
-              <a 
-                href={episode.spotifyUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <Play className="w-5 h-5" />
-                Listen on Spotify
-              </a>
-            </Button>
+            </div>
           </div>
         </div>
 
