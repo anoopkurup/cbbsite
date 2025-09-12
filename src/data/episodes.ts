@@ -1,0 +1,162 @@
+import { Episode } from '@/types'
+
+export const episodes: Episode[] = [
+  {
+    id: "digital-detox-fomo-psychology",
+    title: "The Hidden Costs of Our Digital Lives: FOMO, Social Media Breaks, and AI Comments",
+    description: "Nisha and Anoop dive into the hidden costs of our digital lives—why taking a break from social media makes us feel guilty, and how FOMO keeps both individuals and businesses glued to their feeds.",
+    publishDate: "2024-09-05",
+    duration: "28 min",
+    episodeNumber: 13,
+    topics: ["Social Media", "Psychology", "FOMO", "AI", "Digital Wellness"],
+    spotifyUrl: "https://open.spotify.com/episode/3yZK8fM4tQ6p7j2xRsLtVo",
+    featured: true,
+    slug: "digital-detox-fomo-psychology"
+  },
+  {
+    id: "intent-action-gap-luxury-brands",
+    title: "The Intent-Action Gap: Mid-Luxury Mindset and Jaguar's Bold Rebrand",
+    description: "Exploring the growing intent-action gap—why people say one thing but buy another. Discussion on India's mid-luxury segment and Jaguar's bold rebrand.",
+    publishDate: "2024-07-03",
+    duration: "28 min",
+    episodeNumber: 12,
+    topics: ["Consumer Behavior", "Luxury Brands", "Rebranding", "Indian Market"],
+    spotifyUrl: "https://open.spotify.com/episode/1xYtF3N5oL8e6m9pKsVuTh",
+    featured: false,
+    slug: "intent-action-gap-luxury-brands"
+  },
+  {
+    id: "ai-content-creators-authenticity",
+    title: "AI vs Content Creators: The Authenticity Battle",
+    description: "As AI becomes more prevalent in content creation, we explore what this means for human creators and the value of authenticity in digital marketing.",
+    publishDate: "2024-06-20",
+    duration: "32 min",
+    episodeNumber: 11,
+    topics: ["AI", "Content Creation", "Authenticity", "Digital Marketing"],
+    guests: ["Tridib Ghosh"],
+    spotifyUrl: "https://open.spotify.com/episode/2wXsG4M6nK9r5l3qEtHuFg",
+    featured: true,
+    slug: "ai-content-creators-authenticity"
+  },
+  {
+    id: "startup-culture-brand-identity",
+    title: "Startup Culture and Brand Identity: Building from Day One",
+    description: "How early-stage startups can establish strong brand identities without massive budgets. Real examples from Indian startup ecosystem.",
+    publishDate: "2024-06-05",
+    duration: "26 min",
+    episodeNumber: 10,
+    topics: ["Startup Culture", "Brand Identity", "Marketing Strategy", "Indian Startups"],
+    spotifyUrl: "https://open.spotify.com/episode/4zAs7R8sP2e9t6k1MnCvWr",
+    featured: false,
+    slug: "startup-culture-brand-identity"
+  },
+  {
+    id: "linkedin-timeline-talk-may",
+    title: "LinkedIn Timeline Talk: May Marketing Madness",
+    description: "Our monthly LinkedIn timeline deep dive featuring trending marketing campaigns, controversial takes, and what caught our attention in May 2024.",
+    publishDate: "2024-05-28",
+    duration: "35 min",
+    episodeNumber: 9,
+    topics: ["LinkedIn Timeline Talk", "Marketing Campaigns", "Social Media Trends"],
+    spotifyUrl: "https://open.spotify.com/episode/5yBt8S9tQ3f0u7l2OnDxYs",
+    featured: false,
+    slug: "linkedin-timeline-talk-may"
+  },
+  {
+    id: "consumer-psychology-pricing",
+    title: "The Psychology of Pricing: Why We Pay What We Pay",
+    description: "Diving deep into consumer psychology and pricing strategies. From anchoring bias to premium positioning - how brands influence our buying decisions.",
+    publishDate: "2024-05-15",
+    duration: "29 min",
+    episodeNumber: 8,
+    topics: ["Consumer Psychology", "Pricing Strategy", "Marketing Psychology"],
+    spotifyUrl: "https://open.spotify.com/episode/6zCu9T0uR4g1v8m3PnExZt",
+    featured: true,
+    slug: "consumer-psychology-pricing"
+  },
+  {
+    id: "digital-trends-2024",
+    title: "Digital Trends 2024: What's Actually Working",
+    description: "Mid-year review of digital marketing trends. What's working, what's failing, and what to expect in the second half of 2024.",
+    publishDate: "2024-05-02",
+    duration: "31 min",
+    episodeNumber: 7,
+    topics: ["Digital Trends", "Marketing Strategy", "2024 Predictions"],
+    spotifyUrl: "https://open.spotify.com/episode/7wDv0U1vS5h2w9n4QoFyAt",
+    featured: false,
+    slug: "digital-trends-2024"
+  },
+  {
+    id: "brand-analysis-swiggy-zomato",
+    title: "Brand Wars: Swiggy vs Zomato Marketing Battle",
+    description: "Analyzing the ongoing marketing battle between India's food delivery giants. What can other brands learn from their strategies?",
+    publishDate: "2024-04-25",
+    duration: "27 min",
+    episodeNumber: 6,
+    topics: ["Brand Analysis", "Marketing Strategy", "Competition", "Indian Market"],
+    guests: ["Tridib Ghosh"],
+    spotifyUrl: "https://open.spotify.com/episode/8xEw1V2wT6i3x0o5RpGyBu",
+    featured: false,
+    slug: "brand-analysis-swiggy-zomato"
+  },
+  {
+    id: "linkedin-personal-branding",
+    title: "LinkedIn Personal Branding: Beyond the Buzzwords",
+    description: "How to build genuine personal brands on LinkedIn without falling into the engagement-bait trap. Real strategies for professionals and entrepreneurs.",
+    publishDate: "2024-04-18",
+    duration: "33 min",
+    episodeNumber: 5,
+    topics: ["LinkedIn", "Personal Branding", "Professional Development"],
+    spotifyUrl: "https://open.spotify.com/episode/9yFx2W3xU7j4y1p6SpHzCv",
+    featured: false,
+    slug: "linkedin-personal-branding"
+  },
+  {
+    id: "social-media-insights-april",
+    title: "Social Media Insights: What April Taught Us",
+    description: "Monthly roundup of social media trends, platform updates, and marketing insights from April 2024. Plus our take on the latest algorithm changes.",
+    publishDate: "2024-04-11",
+    duration: "24 min",
+    episodeNumber: 4,
+    topics: ["Social Media Insights", "Platform Updates", "Algorithm Changes"],
+    spotifyUrl: "https://open.spotify.com/episode/0zGy3X4yV8k5z2q7TqIzDx",
+    featured: false,
+    slug: "social-media-insights-april"
+  },
+  {
+    id: "ai-business-impact-2024",
+    title: "AI's Business Impact: Beyond the Hype",
+    description: "A realistic look at how AI is actually impacting businesses in 2024. Real use cases, challenges, and what to expect moving forward.",
+    publishDate: "2024-04-04",
+    duration: "36 min",
+    episodeNumber: 3,
+    topics: ["AI", "Business Strategy", "Technology", "Future Trends"],
+    spotifyUrl: "https://open.spotify.com/episode/1aHy4Y5yW9l6a3r8UsCyEx",
+    featured: true,
+    slug: "ai-business-impact-2024"
+  },
+  {
+    id: "startup-marketing-budget-hacks",
+    title: "Startup Marketing: Maximum Impact, Minimum Budget",
+    description: "Practical marketing strategies for early-stage startups. How to get noticed without breaking the bank, with real examples from successful Indian startups.",
+    publishDate: "2024-03-28",
+    duration: "30 min",
+    episodeNumber: 2,
+    topics: ["Startup Marketing", "Budget Marketing", "Growth Hacking", "Indian Startups"],
+    spotifyUrl: "https://open.spotify.com/episode/2bIz5Z6zX0m7b4s9VtDzFy",
+    featured: false,
+    slug: "startup-marketing-budget-hacks"
+  },
+  {
+    id: "click-brand-beyond-pilot",
+    title: "Welcome to Click, Brand, and Beyond - Our Origin Story",
+    description: "The pilot episode where Anoop and Nisha introduce themselves, share their backgrounds, and explain what Click, Brand, and Beyond is all about.",
+    publishDate: "2024-03-21",
+    duration: "22 min",
+    episodeNumber: 1,
+    topics: ["Introduction", "Origin Story", "Marketing", "Branding"],
+    spotifyUrl: "https://open.spotify.com/episode/3cJA6A7A_1n8c5t0XuEzGz",
+    featured: false,
+    slug: "click-brand-beyond-pilot"
+  }
+]
