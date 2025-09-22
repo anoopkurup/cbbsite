@@ -97,7 +97,7 @@ export default function SubscribePage() {
           <Badge className="bg-secondary-100 text-secondary-800 border-secondary-200 mb-6">
             🔔 Never Miss an Episode
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-800 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-primary-800 mb-6">
             Subscribe & Stay Updated
           </h1>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
@@ -177,7 +177,7 @@ export default function SubscribePage() {
 
             {!isSubscribed ? (
               <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <Input
                     type="email"
                     placeholder="Enter your email address"

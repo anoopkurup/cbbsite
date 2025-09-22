@@ -53,7 +53,7 @@ export default function AboutPage() {
           <Badge className="bg-secondary-100 text-secondary-800 border-secondary-200 mb-6">
             🎙️ About Our Podcast
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-800 mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-primary-800 mb-6">
             Click, Brand, and Beyond
           </h1>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">

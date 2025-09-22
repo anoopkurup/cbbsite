@@ -36,7 +36,7 @@ export default async function HostsPage() {
               <div className="p-8 lg:p-12">
                 <div className="grid lg:grid-cols-3 gap-8 items-center">
                   {/* Host Photo Placeholder */}
-                  <div className={`${index % 2 === 1 ? 'lg:order-3' : ''}`}>
+                  <div className={`flex justify-center ${index % 2 === 1 ? 'lg:order-3' : ''}`}>
                     <div className="aspect-video w-full max-w-md mx-auto bg-gradient-to-br from-primary-400 to-secondary-400 rounded-2xl flex items-center justify-center shadow-lg">
                       <Users className="w-24 h-24 text-white" />
                     </div>

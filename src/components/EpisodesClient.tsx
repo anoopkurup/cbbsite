@@ -2,11 +2,10 @@
 
 import { useState, useMemo } from 'react'
 import { Episode } from '@/types'
-import { topics } from '@/data/topics'
 import { EpisodeCard } from '@/components/EpisodeCard'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
-import { Search, Filter } from 'lucide-react'
+import { Search } from 'lucide-react'
 
 interface EpisodesClientProps {
   episodes: Episode[]
@@ -14,36 +13,23 @@ interface EpisodesClientProps {
 
 export default function EpisodesClient({ episodes }: EpisodesClientProps) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedTopic, setSelectedTopic] = useState<string>('')
 
   const filteredEpisodes = useMemo(() => {
     return episodes.filter(episode => {
       const matchesSearch = !searchTerm || 
         episode.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        episode.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        episode.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()))
+        episode.description.toLowerCase().includes(searchTerm.toLowerCase())
 
-      const matchesTopic = !selectedTopic || 
-        episode.topics.some(topic => topic === selectedTopic)
-
-      return matchesSearch && matchesTopic
+      return matchesSearch
     })
-  }, [episodes, searchTerm, selectedTopic])
-
-  const allTopics = useMemo(() => {
-    const topicsSet = new Set<string>()
-    episodes.forEach(episode => {
-      episode.topics.forEach(topic => topicsSet.add(topic))
-    })
-    return Array.from(topicsSet).sort()
-  }, [episodes])
+  }, [episodes, searchTerm])
 
   return (
     <div className="min-h-screen bg-background-light">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-primary-800 mb-4">
             All Episodes
           </h1>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
@@ -52,46 +38,18 @@ export default function EpisodesClient({ episodes }: EpisodesClientProps) {
           </p>
         </div>
 
-        {/* Search and Filter */}
+        {/* Search */}
         <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-white/80 rounded-lg p-6 shadow-sm">
-            {/* Search */}
-            <div className="relative mb-6">
+            <div className="relative">
               <Search className="absolute left-3 top-3 w-4 h-4 text-text-muted" />
               <Input
                 type="text"
-                placeholder="Search episodes by title, description, or topic..."
+                placeholder="Search episodes by title or description..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
               />
-            </div>
-
-            {/* Topic Filter */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Filter className="w-4 h-4 text-text-muted" />
-                <span className="text-sm font-medium text-text-secondary">Filter by Topic:</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <Badge
-                  variant={!selectedTopic ? "default" : "outline"}
-                  className={`cursor-pointer ${!selectedTopic ? 'bg-primary-600' : 'hover:bg-primary-50'}`}
-                  onClick={() => setSelectedTopic('')}
-                >
-                  All Topics
-                </Badge>
-                {allTopics.map((topic) => (
-                  <Badge
-                    key={topic}
-                    variant={selectedTopic === topic ? "default" : "outline"}
-                    className={`cursor-pointer ${selectedTopic === topic ? 'bg-primary-600' : 'hover:bg-primary-50'}`}
-                    onClick={() => setSelectedTopic(topic)}
-                  >
-                    {topic}
-                  </Badge>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -118,17 +76,16 @@ export default function EpisodesClient({ episodes }: EpisodesClientProps) {
                 No episodes found
               </h3>
               <p className="text-text-muted mb-6">
-                Try adjusting your search terms or selected topic filter
+                Try adjusting your search terms
               </p>
               <Badge
                 variant="outline"
                 className="cursor-pointer hover:bg-primary-50"
                 onClick={() => {
                   setSearchTerm('')
-                  setSelectedTopic('')
                 }}
               >
-                Clear all filters
+                Clear Search
               </Badge>
             </div>
           )}

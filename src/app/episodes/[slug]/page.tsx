@@ -108,7 +108,7 @@ export default async function EpisodePage({ params }: EpisodePageProps) {
                   )}
                 </div>
 
-                <h1 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+                <h1 className="text-2xl md:text-4xl font-bold text-primary-800 mb-4">
                   Episode {episode.episodeNumber}: {episode.title}
                 </h1>
 
